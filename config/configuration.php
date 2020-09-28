@@ -11,20 +11,50 @@ ini_set("date.timezone", "Asia/Karachi");
 date_default_timezone_set("Asia/Karachi");
 
 //DATABASE SETTINGS
-$config['host'] = 'easertechnologiescom.ipagemysql.com';
-$config['user'] = 'cloud_5';
-$config['pass'] = 'cloud_5';
-$config['dbname']  = 'portfolio';
+$config['host'] = 'localhost';
+$config['user'] = 'root';
+$config['pass'] = '';
+$config['dbname']  = '';
 
 $config['link']         = mysqli_connect($config['host'], $config['user'], $config['pass']);
-$config['db']             = mysqli_select_db($config['link'], $config['dbname']);
-
+// Create database
+$sql = "CREATE DATABASE IF NOT EXISTS portfolio";
+if ($config['link']->query($sql) === TRUE) {
+    $config['dbname']  = 'portfolio';
+}
+$config['db'] = mysqli_select_db($config['link'], $config['dbname']);
 $pdo = '';
 
 try {
     $pdo = new PDO("mysql:host=" . $config['host'] . ";dbname=" . $config['dbname'], $config['user'], $config['pass']);
     // set the PDO error mode to exception
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $table1 = 'CREATE TABLE IF NOT EXISTS `portfolios` (
+        `id` int(11) AUTO_INCREMENT PRIMARY KEY,
+        `title` varchar(255) DEFAULT NULL,
+        `user_id` int(11) NOT NULL,
+        `description` text,
+        `picture` varchar(255) DEFAULT NULL,
+        `datetime` datetime DEFAULT CURRENT_TIMESTAMP
+      ) ENGINE=InnoDB DEFAULT CHARSET=latin1;';
+
+    $table2 = 'CREATE TABLE IF NOT EXISTS `users` (
+        `user_id` int(11) AUTO_INCREMENT PRIMARY KEY,
+        `name` varchar(150) CHARACTER SET latin1 DEFAULT NULL,
+        `password` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
+        `email` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+        `isactive` tinyint(1) NOT NULL DEFAULT 1,
+        `city` varchar(100) DEFAULT NULL,
+        `phone` varchar(20) NOT NULL,
+        `status` varchar(20) NOT NULL,
+        `dp` varchar(255) DEFAULT NULL,
+        `datetime` datetime DEFAULT CURRENT_TIMESTAMP,
+        `logintime` datetime DEFAULT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;';
+
+    $pdo->exec($table1);
+    $pdo->exec($table2);
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
     exit();
@@ -39,29 +69,14 @@ define('SOURCEROOT', $_SERVER['DOCUMENT_ROOT'] . '/');
 define('SOURCEROOT_ADMIN', $_SERVER['DOCUMENT_ROOT'] . '/');
 define('SITEURL_ADMIN', SITEURL . '');
 define('ADMIN_ASSETS', SITEURL_ADMIN . 'assets/');
-define('ADMIN_GLB', SITEURL_ADMIN . 'assets/global/');
-define('ADMIN_LIB', SITEURL_ADMIN . 'assets/libraries/');
-define('ADMIN_GLB_PLUGINS', SITEURL_ADMIN . 'assets/global/plugins/');
 
 define('ADMIN_IMAGES', SITEURL_ADMIN . 'assets/Images/');
-define('ERROR_IMAGES', SITEURL_ADMIN . 'assets/error/');
-define('ADMIN_REPORTS', SITEURL_ADMIN . 'assets/reports/');
-define('SIGNATURE_IMG', ADMIN_IMAGES . 'signature/');
 
 //For ADMIN panel images upload
 define('ADMIN_IMAGE', SOURCEROOT . 'assets/Images/');
-define('ERROR_IMAGE', SOURCEROOT . 'assets/error/');
-define('ADMIN_REPORT', SOURCEROOT . 'assets/reports/');
-
-//For admin Internal Pages
-define('ADMIN_PAGES', SITEURL_ADMIN . 'pages/');
-define('ADMIN_P_DASHBOARD', SITEURL_ADMIN . 'pages/dashboard/');
-define('ADMIN_P_USERS', SITEURL_ADMIN . 'pages/brandambassador/');
-define('ADMIN_P_REPORTS', SITEURL_ADMIN . 'pages/reports/');
-define('ADMIN_P_UPDATES', SITEURL_ADMIN . 'pages/updates/');
 
 //For the android API
-define('ADMIN_API', SITEURL_ADMIN . 'android/');
+define('ADMIN_API', SITEURL_ADMIN . 'services/');
 
 //For images upload
 define('ROOT_IMAGES', SOURCEROOT . 'assets/Images/');
