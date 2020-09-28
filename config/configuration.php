@@ -59,11 +59,12 @@ try {
 
 
 //HTTP REGUEST URLS FOR CSS, IMAGES AND JS
-define('SITEURL', "http://" . $_SERVER['SERVER_NAME'] . "/");
+define('SITEURL', "http://" . $_SERVER['SERVER_NAME'] . "/ccproject5/");
+echo SITEURL;
 
 // For Admin
-define('SOURCEROOT', $_SERVER['DOCUMENT_ROOT'] . '/');
-define('SOURCEROOT_ADMIN', $_SERVER['DOCUMENT_ROOT'] . '/');
+define('SOURCEROOT', $_SERVER['DOCUMENT_ROOT'] . '/ccproject5/');
+define('SOURCEROOT_ADMIN', $_SERVER['DOCUMENT_ROOT'] . '/ccproject5/');
 define('SITEURL_ADMIN', SITEURL . '');
 define('ADMIN_ASSETS', SITEURL_ADMIN . 'assets/');
 
