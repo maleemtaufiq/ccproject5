@@ -67,7 +67,6 @@ if (isset ($_SERVER['SERVER_NAME']) ) {
 
 //HTTP REGUEST URLS FOR CSS, IMAGES AND JS
 define('SITEURL', "http://" . $host . "/ccproject5/");
-echo SITEURL;
 
 // For Admin
 define('SOURCEROOT', $_SERVER['DOCUMENT_ROOT'] . '/ccproject5/');
