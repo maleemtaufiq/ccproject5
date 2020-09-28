@@ -57,9 +57,16 @@ try {
     exit();
 }
 
+$host = '';
+if (isset ($_SERVER['SERVER_NAME']) ) {
+    $host = $_SERVER['SERVER_NAME'];
+} else {
+        global $wgServerName;
+        $host = $wgServerName;
+}
 
 //HTTP REGUEST URLS FOR CSS, IMAGES AND JS
-define('SITEURL', "http://" . $_SERVER['SERVER_NAME'] . "/ccproject5/");
+define('SITEURL', "http://" . $host . "/ccproject5/");
 echo SITEURL;
 
 // For Admin
