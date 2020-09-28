@@ -17,7 +17,6 @@ $config['link'] = mysqli_connect($config['host'], $config['user'], $config['pass
 $sql = "CREATE DATABASE IF NOT EXISTS portfolio";
 if ($config['link']->query($sql) === TRUE) {
     $config['dbname']  = 'portfolio';
-    echo "DB CREATED";
 }
 
 $config['db'] = mysqli_select_db($config['link'], $config['dbname']);
