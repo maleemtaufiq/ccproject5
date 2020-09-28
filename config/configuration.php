@@ -8,7 +8,7 @@ ini_set('memory_limit', '2048M');
 
 //DATABASE SETTINGS
 $config['host'] = 'localhost';
-$config['user'] = 'root';
+$config['user'] = 'aleem';
 $config['pass'] = 'password';
 $config['dbname']  = '';
 
