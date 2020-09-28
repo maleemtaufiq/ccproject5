@@ -2,13 +2,9 @@
 session_start();
 ob_start();
 
-error_reporting(0);
+error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('memory_limit', '2048M');
-
-// ini_set('session.cookie_domain', '.http://ba.easertechnologies.com');
-ini_set("date.timezone", "Asia/Karachi");
-date_default_timezone_set("Asia/Karachi");
 
 //DATABASE SETTINGS
 $config['host'] = 'localhost';
