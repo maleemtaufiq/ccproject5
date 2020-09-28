@@ -66,11 +66,11 @@ if (isset($_SERVER['SERVER_NAME'])) {
 }
 
 //HTTP REGUEST URLS FOR CSS, IMAGES AND JS
-define('SITEURL', "http://" . $host . "/portfolio/");
+define('SITEURL', "http://" . $host . "/ccproject5/");
 
 // For Admin
-define('SOURCEROOT', $_SERVER['DOCUMENT_ROOT'] . '/portfolio/');
-define('SOURCEROOT_ADMIN', $_SERVER['DOCUMENT_ROOT'] . '/portfolio/');
+define('SOURCEROOT', $_SERVER['DOCUMENT_ROOT'] . '/ccproject5/');
+define('SOURCEROOT_ADMIN', $_SERVER['DOCUMENT_ROOT'] . '/ccproject5/');
 define('SITEURL_ADMIN', SITEURL . '');
 define('ADMIN_ASSETS', SITEURL_ADMIN . 'assets/');
 
