@@ -98,7 +98,7 @@ if [[ -e /etc/os-release ]]; then
             exit 1
         fi
         sudo mysqladmin password password
-        sudo mysql -uroot -ppassword mysql -e "CREATE DATABASE IF NOT EXISTS portfolio; GRANT ALL PRIVILEGES ON portfolio.* TO 'portfolio'@'%' IDENTIFIED BY 'password';"
+        sudo mysql -uroot -ppassword mysql -e "CREATE DATABASE IF NOT EXISTS portfolio;CREATE USER 'aleem'@'localhost' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON portfolio.* TO 'aleem'@'localhost';"
         URL_DATABASE='mysql://root:password@localhost/portfolio'
     fi
 
