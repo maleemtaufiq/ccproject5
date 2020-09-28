@@ -87,4 +87,6 @@ define('ROOT_IMAGES', SOURCEROOT . 'assets/Images/');
 define('API_KEY', 'c6edce9728343e9ddfbba4dedfdf');
 
 // Call Functions for the site
-require SOURCEROOT_ADMIN . "actions/functions.php";
+//require SOURCEROOT_ADMIN . "actions/functions.php";
+require "../actions/functions.php";
+
