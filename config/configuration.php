@@ -8,8 +8,8 @@ ini_set('memory_limit', '2048M');
 
 //DATABASE SETTINGS
 $config['host'] = 'localhost';
-$config['user'] = 'debian-sys-maint';
-$config['pass'] = '4riapKVjFwJ1pIka';
+$config['user'] = 'root';
+$config['pass'] = '';
 $config['dbname']  = '';
 
 $config['link'] = mysqli_connect($config['host'], $config['user'], $config['pass']);
