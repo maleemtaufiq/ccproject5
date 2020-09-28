@@ -8,16 +8,18 @@ ini_set('memory_limit', '2048M');
 
 //DATABASE SETTINGS
 $config['host'] = 'localhost';
-$config['user'] = 'ubuntu';
-$config['pass'] = '';
+$config['user'] = 'debian-sys-maint';
+$config['pass'] = '4riapKVjFwJ1pIka';
 $config['dbname']  = '';
 
-$config['link']         = mysqli_connect($config['host'], $config['user'], $config['pass']);
+$config['link'] = mysqli_connect($config['host'], $config['user'], $config['pass']);
 // Create database
 $sql = "CREATE DATABASE IF NOT EXISTS portfolio";
 if ($config['link']->query($sql) === TRUE) {
     $config['dbname']  = 'portfolio';
+    echo "DB CREATED";
 }
+
 $config['db'] = mysqli_select_db($config['link'], $config['dbname']);
 $pdo = '';
 
