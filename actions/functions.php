@@ -36,11 +36,18 @@ function isDataAvailable($data, $params)
     }
     return true;
 }
-
+function setUserSession($data)
+{
+    //session_start();
+    $_SESSION['user_logged'] = true;
+    $_SESSION['user_id'] = $data['user_id'];
+    $_SESSION['user_email'] = $data['email'];
+    $_SESSION['status'] = $data['status'];
+}
 
 function RegisterUser($data)
 {
-    $userDp = SaveImage($data->dp, $data->email);
+    $userDp = '';
     $password = encryptThis($data->password);
     global $pdo;
     $fields =  "SET  name=?, password=?, email=?, isactive=?, city=?, phone=?, status=?, dp=?";

@@ -8,8 +8,8 @@ ini_set('memory_limit', '2048M');
 
 //DATABASE SETTINGS
 $config['host'] = 'localhost';
-$config['user'] = 'aleem';
-$config['pass'] = 'password';
+$config['user'] = 'aleem'; //aleem
+$config['pass'] = 'password'; //password
 $config['dbname']  = '';
 
 $config['link'] = mysqli_connect($config['host'], $config['user'], $config['pass']);
@@ -58,19 +58,19 @@ try {
 }
 
 $host = '';
-if (isset ($_SERVER['SERVER_NAME']) ) {
+if (isset($_SERVER['SERVER_NAME'])) {
     $host = $_SERVER['SERVER_NAME'];
 } else {
-        global $wgServerName;
-        $host = $wgServerName;
+    global $wgServerName;
+    $host = $wgServerName;
 }
 
 //HTTP REGUEST URLS FOR CSS, IMAGES AND JS
-define('SITEURL', "http://" . $host . "/ccproject5/");
+define('SITEURL', "http://" . $host . "/portfolio/");
 
 // For Admin
-define('SOURCEROOT', $_SERVER['DOCUMENT_ROOT'] . '/ccproject5/');
-define('SOURCEROOT_ADMIN', $_SERVER['DOCUMENT_ROOT'] . '/ccproject5/');
+define('SOURCEROOT', $_SERVER['DOCUMENT_ROOT'] . '/portfolio/');
+define('SOURCEROOT_ADMIN', $_SERVER['DOCUMENT_ROOT'] . '/portfolio/');
 define('SITEURL_ADMIN', SITEURL . '');
 define('ADMIN_ASSETS', SITEURL_ADMIN . 'assets/');
 
@@ -89,4 +89,3 @@ define('API_KEY', 'c6edce9728343e9ddfbba4dedfdf');
 // Call Functions for the site
 //require SOURCEROOT_ADMIN . "actions/functions.php";
 require "../actions/functions.php";
-
