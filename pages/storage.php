@@ -100,7 +100,7 @@ require "../config/configuration.php"; ?>
                   <p class="card-text"><?= $portfolio['description'] ?></p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <a href="./view-portfolio?id=<?= $portfolio['id'] ?>" class="btn btn-sm btn-outline-secondary">View</a>
+                      <a href="./view-portfolio.php?id=<?= $portfolio['id'] ?>" class="btn btn-sm btn-outline-secondary">View</a>
                     </div>
                     <small class="text-muted"><?= formatDate($portfolio['datetime']) ?></small>
                   </div>
