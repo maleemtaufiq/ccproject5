@@ -168,9 +168,11 @@ function SavePortfolioImage($imagefile_rec, $user)
 
     //$upload = file_put_contents($targetPath, base64_decode($imagefile_rec));
 
-    if ($upload == false)
+    if ($upload == false) {
+        var_dump($_FILES["picture"]["error"]);
+        die();
         return "No Image";
-    else
+    } else
         return $imageFile;
 }
 
