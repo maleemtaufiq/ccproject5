@@ -100,6 +100,8 @@ if [[ -e /etc/os-release ]]; then
         sudo mysqladmin password password
         sudo mysql -uroot -ppassword mysql -e "CREATE DATABASE IF NOT EXISTS portfolio;CREATE USER 'aleem'@'localhost' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON portfolio.* TO 'aleem'@'localhost';"
         URL_DATABASE='mysql://root:password@localhost/portfolio'
+        git clone https://github.com/maleemtaufiq/ccproject5
+        sudo mv ccproject5 /var/www/html
     fi
 
     if [[ $INSTALL_MESSAGING -eq 1 ]]; then
@@ -140,11 +142,7 @@ if [[ -e /etc/os-release ]]; then
             echo "error: distribution $ID not supported"
             exit 1
         fi
-
-        # HSFD changed to local repo
-        git clone https://github.com/maleemtaufiq/ccproject5
-        sudo mv ccproject5 /var/www/html
-        # following line required by bug 1636150
+      
     fi
     
 else
