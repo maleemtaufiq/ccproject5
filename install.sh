@@ -143,7 +143,7 @@ if [[ -e /etc/os-release ]]; then
         fi
 
         # HSFD changed to local repo
-        git clone https://github.com/maleemtaufiq/ccproject5
+        sudo git clone https://github.com/maleemtaufiq/ccproject5
         sudo mv ccproject5 /var/www/html
         # following line required by bug 1636150
     fi
