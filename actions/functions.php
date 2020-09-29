@@ -48,7 +48,7 @@ function setUserSession($data)
 function RegisterUser($data)
 {
     $userDp = '';
-    $password = encryptThis($data->password);
+    $password = encryptThis($data['password']);
     global $pdo;
     $fields =  "SET  name=?, password=?, email=?, isactive=?, city=?, phone=?, status=?, dp=?";
     try {
@@ -56,12 +56,12 @@ function RegisterUser($data)
 
         $stmt->execute(
             array(
-                $data->name,
+                $data['name'],
                 $password,
-                $data->email,
+                $data['email'],
                 1,
-                $data->city,
-                $data->phone,
+                $data['city'],
+                $data['phone'],
                 'user',
                 $userDp
             )
@@ -232,7 +232,7 @@ function GetUserPortfolios($id)
     $sql = "SELECT * FROM portfolios where user_id=$id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $data = false;
+    $data = [];
     if ($stmt->rowCount() > 0) {
         while ($row = $stmt->fetch()) {
             $data[] = $row;
@@ -244,5 +244,5 @@ function GetUserPortfolios($id)
 function formatDate($date)
 {
     $toFormat = date_create($date);
-    return date_format($toFormat, "d/m/Y");
+    return date_format($toFormat, "d-M-Y h:m A");
 }

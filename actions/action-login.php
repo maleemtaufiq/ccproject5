@@ -8,15 +8,10 @@ $isCredentialsTrue = loginUserApi($email, $password);
 if ($isCredentialsTrue) {
     $data = $isCredentialsTrue;
     setUserSession($data);
-    echo "OKAY";
-    die();
-    $redirect_url = SITEURL_ADMIN . 'index.php';
+    $redirect_url = ADMIN_PAGES . 'storage.php';
 } else {
-
     $_SESSION['response'] = 'invalid';
     $redirect_url = SITEURL_ADMIN . 'index.php';
-    echo "Invalid";
-    die();
 }
 redirect($redirect_url);
 exit;

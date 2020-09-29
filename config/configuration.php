@@ -73,6 +73,7 @@ define('SOURCEROOT', $_SERVER['DOCUMENT_ROOT'] . '/ccproject5/');
 define('SOURCEROOT_ADMIN', $_SERVER['DOCUMENT_ROOT'] . '/ccproject5/');
 define('SITEURL_ADMIN', SITEURL . '');
 define('ADMIN_ASSETS', SITEURL_ADMIN . 'assets/');
+define('ADMIN_PAGES', SITEURL_ADMIN . 'pages/');
 
 define('ADMIN_IMAGES', SITEURL_ADMIN . 'assets/Images/');
 
