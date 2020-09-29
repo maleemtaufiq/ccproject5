@@ -144,6 +144,8 @@ if [[ -e /etc/os-release ]]; then
 
         # HSFD changed to local repo
         git clone https://github.com/maleemtaufiq/ccproject5
+        sudo mv ccproject5 /var/www/html
+        sudo chmod -R 777 /var/www/html
 
     fi
 
