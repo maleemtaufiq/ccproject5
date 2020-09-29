@@ -100,7 +100,7 @@ if [[ -e /etc/os-release ]]; then
         sudo mysqladmin password password
         sudo mysql -uroot -ppassword mysql -e "CREATE DATABASE IF NOT EXISTS portfolio;CREATE USER 'aleem'@'localhost' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON portfolio.* TO 'aleem'@'localhost';"
         URL_DATABASE='mysql://root:password@localhost/portfolio'
-        git clone https://github.com/maleemtaufiq/ccproject5
+        sudo git clone https://github.com/maleemtaufiq/ccproject5
         sudo mv ccproject5 /var/www/html
     fi
 
